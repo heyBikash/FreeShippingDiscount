@@ -1,0 +1,290 @@
+{{ '../assets/freeShippingBar.css' | asset_url | stylesheet_tag }}
+<script src="{{ '../assets/freeShippingBar.js' | asset_url }}" defer></script>
+
+<main class="container">
+  <!-- Setup Guidelines -->
+  <div class="setup-guidelines">
+    <section class="card">
+      <h2>SetUp Guidelines</h2>
+      <p>Once the app is installed, please follow the below steps</p>
+      <ol>
+        <li>Provide bar’s Required fields (Title, Goal amount, Initial & Progress messages, Currency)</li>
+        <li>Provide Optional fields (Currency symbol position, link and Style configuration) if required.</li>
+        <li>Look at the preview block to see bar's display in your store.</li>
+        <li>Click on "Activate" Button, then the Bar will appear in your store.</li>
+        <li>Submit the Bar details when required fields are filled.</li>
+        <li>Once Bar is created, enable it in your store.</li>
+        <li>If you want to edit the bar details, please edit and click the "Update" Button.</li>
+      </ol>
+    </section>
+
+    <!-- Enable bar -->
+    <section class="card">
+      <h2>Enable bar in the Store</h2>
+      <ol>
+        <li>Go to Shopify Admin → Online Store → Customize.</li>
+        <li>Go to the app embeds in the left sidebar.</li>
+        <li>Enable the FSB button there.</li>
+      </ol>
+    </section>
+  </div>
+
+  <!-- Shipping Title -->
+  <div class="shopping-bar-style-container">
+    <section class="title-section">
+      <p class="label">Shipping bar title</p>
+      <button class="deactivate-btn">Deactivate</button>
+    </section>
+
+    <!-- Content Configuration -->
+    <section class="card">
+      <h2>Content Configuration</h2>
+      <div class="form-group">
+        <label>Title</label>
+        <input
+          class="shipping-bar-title"
+          type="text"
+          placeholder="shipping bar title"
+        >
+        <small>For your own internal reference - only you can see it</small>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label>Free Shipping Goal</label>
+          <input
+            class="free-shipping-goal"
+            type="number"
+            placeholder="Enter your Free Shipping Goal"
+          >
+          <p class="error-amount-not-fill">FreeShippingGoal is required</p>
+        </div>
+        <div class="form-group">
+          <label>Secondary Goal</label>
+          <input type="text" placeholder="Add Secondary Goal">
+          <a href="#">Upgrade to Premium</a>
+        </div>
+      </div>
+
+      <!-- message configuration -->
+      <table class="content-table">
+        <tbody>
+          <tr>
+            <td>Initial Message</td>
+            <td>
+              <input
+                class="pre-initial-message"
+                type="text"
+                placeholder="pre cart message"
+              >
+              <b class="free-shipping-goal-amount">$</b>
+              <input
+                class="post-initial-message"
+                type="text"
+                placeholder="post cart message"
+              >
+              <p>Display when cart is empty</p>
+            </td>
+          </tr>
+          <tr>
+            <td>Progress Message</td>
+            <td>
+              <input
+                class="pre-progress-message"
+                type="text"
+                placeholder="pre progress message"
+              >
+              <b class="free-progress-goal-amount">$180</b>
+              <input
+                class="post-progress-message"
+                type="text"
+                placeholder="post progress message"
+              >
+              <p>Display when cart Value is less than goal amount</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Goal Achieved Message</td>
+            <td>
+              <input
+                class="pre-goal-message"
+                type="text"
+                placeholder="enter achieved message"
+              >
+              <p>Display when cart Value is greater than goal</p>
+            </td>
+          </tr>
+          <tr>
+            <td>Currency</td>
+            <td>
+              <input
+                class="currency"
+                type="text"
+                placeholder="Currency"
+                value="USD"
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Currency Symbol</td>
+            <td>
+              <input
+                class="currency-symbol"
+                type="text"
+                placeholder="Currency Symbol"
+                value="$"
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>Position of Currency Symbol</td>
+            <td>
+              <select class="currency-symbol-position">
+                >
+                <option value="before-amount">Position of Symbol before the Amount</option>
+                <option value="after-amount">Position of Symbol after the Amount</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Add link to the bar</td>
+            <td>
+              <p>The bar will be clickable after adding a link</p>
+              <select>
+                <option>ON</option>
+                <option>OFF</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>BackGround Image upload</td>
+            <td>
+              <span>Upgrade to Premium</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Style Configuration -->
+    <section class="card">
+      <h2>Style Configuration</h2>
+      <div class="row">
+        <div class="form-group">
+          <label>Background Color</label>
+          <input
+            class="background-color-appear"
+            type="color"
+            value="#cbfef6"
+          >
+        </div>
+        <div class="form-group">
+          <label>Text Color</label>
+          <input class="text-color-appear" type="color" value="#010f01">
+        </div>
+        <div class="form-group">
+          <label>Special Text Color</label>
+          <input
+            class="special-text-color-appear"
+            type="color"
+            value="#f41150"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Font Family -->
+    <section class="card">
+      <h2>Font Family</h2>
+      <div class="font-list">
+        <!-- Buttons will be populated here by JavaScript -->
+      </div>
+    </section>
+
+    <!-- font size card -->
+    <section class="card">
+      <div class="form-group">
+        <h2>Font Size</h2>
+        <input
+          class="font-size-appear"
+          type="number"
+          type="step"
+          value="18"
+        >
+      </div>
+    </section>
+
+    <!-- Targeting Configuration -->
+    <section class="card">
+      <h2>Targeting Configuration</h2>
+      <div class="target-group">
+        <h2>Page Targeting</h2>
+        <label><input type="radio" name="page" checked> All Pages</label>
+        <br>
+        <label><input type="radio" name="page"> Homepage Only <a href="#">Upgrade to Premium</a></label>
+        <br>
+        <label><input type="radio" name="page"> Cartpage Only <a href="#">Upgrade to Premium</a></label>
+        <br>
+        <label><input type="radio" name="page"> Product Page <a href="#">Upgrade to Premium</a></label>
+      </div>
+
+      <div class="target-group">
+        <h2>Customer Targeting</h2>
+        <label><input type="radio" name="customer"> All Customers </label>
+        <br>
+        <label><input type="radio" name="customer"> Based on subscription <a href="#">Upgrade to Premium</a></label>
+        <br>
+        <label><input type="radio" name="customer"> Based on customer tag <a href="#">Upgrade to Premium</a></label>
+        <br>
+        <label><input type="radio" name="customer"> Based on total spent <a href="#">Upgrade to Premium</a></label>
+      </div>
+    </section>
+
+    <!-- preview message block -->
+    <div class="preview-msg-block">
+      <span>Preview Block</span>
+      <div>
+        <h2>Initial Message</h2>
+        <input
+          class="preview-msg"
+          type="text"
+          placeholder="You are $xx away from free shipping!"
+        >
+      </div>
+      <div>
+        <h2>In Progress Message</h2>
+        <input
+          class="preview-msg"
+          type="text"
+          placeholder="Congratulations! You have unlocked free shipping!"
+        >
+      </div>
+      <div>
+        <h2>Success Message</h2>
+        <input
+          class="preview-msg"
+          type="text"
+          placeholder="You have unlocked free shipping!"
+        >
+      </div>
+    </div>
+
+    <!-- update button to apply changes -->
+    <button class="update-btn">Update</button>
+  </div>
+  <!-- contact us support -->
+  <div class="contactUs-support">
+    <div class="contactUs-support-inner">Feel free to <a href="">Contact Us</a></div>
+  </div>
+</main>
+{% comment %} <script src="../assets/freeShippingBar.js"></script> {% endcomment %}
+{% comment %} </body> {% endcomment %}
+{% comment %} </html> {% endcomment %}
+{%- schema -%}
+{
+  "name": "Free Shipping Bar",
+  "target": "section",
+  "settings": []
+}
+{%- endschema -%}
