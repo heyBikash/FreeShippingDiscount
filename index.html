@@ -521,33 +521,6 @@
     // setCartTotal(realCartTotal);
     //  setCartTotal(shopifyCart.subtotal_price / 100);
     // setCartTotal(shopifyCart.subtotal_price);
-
-    // Compute free shipping progress status
-    // const freeShippingGoalInput = document.querySelector(".free-shipping-goal");
-    // const goalValue = Number(freeShippingGoalInput.value) || 0;
-    // const currentCartAmount =
-    //   Number(FreeShippingDiscount.currentCartValue) || 0;
-
-    // let remainingAmount = goalValue - currentCartAmount;
-
-    // if (remainingAmount > 0) {
-    //   console.log(
-    //     `Free Shipping Not Achieved. Add ${FreeShippingDiscount.currencySymbol}${remainingAmount} more to unlock free shipping.`
-    //   );
-    // } else {
-    //   console.log("🎉 Free Shipping Achieved!");
-    // }
-
-    // // Optionally update FreeShippingDiscount object
-    // FreeShippingDiscount["remainingAmount"] = remainingAmount;
-    // FreeShippingDiscount["isFreeShippingAchieved"] = remainingAmount <= 0;
-
-    // console.log("Shipping Status:", {
-    //   goalValue,
-    //   currentCartAmount,
-    //   remainingAmount,
-    //   achieved: FreeShippingDiscount["isFreeShippingAchieved"],
-    // });
     // ----------------------------------------
 
     // currency symbol capture
@@ -664,6 +637,18 @@
       }
     });
 
+    let Base_Api = "https://free-shipping-discount-pz9g.vercel.app";
+    async function fetchApi() {
+      try {
+        const data = await fetch(`${Base_Api}/get-fsb/shopify_store_001`);
+        const res = await data.json();
+        console.log(res);
+      } catch (err) {
+        console.log("Something went wrong", err);
+      }
+    }
+
+    fetchApi();
     // log data on update button click
     const isErrorFreeShippingAmount = document.getElementsByClassName(
       "error-amount-not-fill"

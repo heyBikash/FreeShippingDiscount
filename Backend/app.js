@@ -1,5 +1,5 @@
 const express = require('express');
-
+const cors = requires("cors");
 const app = express();
 const dotenv = require('dotenv');
 dotenv.config();    
@@ -7,6 +7,12 @@ const connectToDatabase = require('./config/db');
 const freeShippingBarRoutes = require('./routes/FSB.route');
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
+
+app.use(cors({
+  origin: "*", 
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));
 
 // test route
 app.get("/test", (req, res) => {
