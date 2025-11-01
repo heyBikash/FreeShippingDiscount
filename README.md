@@ -1,4 +1,4 @@
-# Free shipping Discount bar
+# Free shipping Discount bar-shopify
 
 # 🛒 Project Document: **Shopify App – Free Shipping Bar**
 
